@@ -2103,7 +2103,7 @@ class StreamThread(QThread):
                 self.xunfei()
 
             elif self.selected_option == "腾讯":
-                self.tengxun
+                self.tengxun()
 
             else:
                 select_option = self.selected_option
