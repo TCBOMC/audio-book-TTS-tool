@@ -4,6 +4,23 @@
 
 预先要部署在本地的GPT-SoVITS整合包：[BV1F94y1K724](https://www.bilibili.com/video/BV1F94y1K724/)
 
+**启动GPT-SoVITS**
+
+![屏幕截图 2024-12-01 011338](https://github.com/user-attachments/assets/6681be39-e7b4-4270-b2a0-36f389c5d7ff)
+
+1.下载[整合包](https://pan.baidu.com/share/init?surl=OE5qL0KreO-ASHwm6Zl9gA&pwd=mqpi)后解压得到上图目录，将下载的[模型](https://pan.baidu.com/s/14WUDbWnBn7GPQYVREkWMug?pwd=1145)依次放入上图中标注的文件夹之后双击**go-webui.bat**文件启动WebUI
+
+2.启动WebUI默认浏览器应该会打开如下图中的网页，依次点击图中标注的三个按钮以打开tts推理功能，此时注意go-webui.bat打开的控制台的信息，如果报错点击按钮③**关闭TTS推理WebUI**后再打开应该就好了
+
+![屏幕截图 2024-12-01 012615](https://github.com/user-attachments/assets/290b7b70-68f8-4dee-95fd-ef111c3b0b8d)
+
+3.TTS推理WebUI页面在浏览器中弹出说明推理功能启动正常，此页面对本程序无用，不用管，这时只需开启本程序即可正常使用
+
+![屏幕截图 2024-12-01 013943](https://github.com/user-attachments/assets/c6e8cd58-b515-474c-8224-b0c55ee5e57c)
+
+
+——————————分割线——————————
+
 **选项卡1**
 
 ![屏幕截图 2024-11-28 192050](https://github.com/user-attachments/assets/eaef93b5-64ac-4f43-91f5-f6cac6b27cf1)
