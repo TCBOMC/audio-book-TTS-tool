@@ -1,4 +1,4 @@
-用AI辅助编写了一个程序接入的这位UP@白菜工厂1145号员工制作的整合包中的API
+用AI辅助编写了一个程序接入的B站这位UP@**白菜工厂1145号员工** 制作的整合包中的API
 
 该位UP的教程(其中包含相关模型下载)： https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e
 
