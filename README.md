@@ -2,7 +2,7 @@
 
 该位UP的教程(其中包含相关模型下载)： https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e
 
-整合包：[BV1F94y1K724](https://www.bilibili.com/video/BV1F94y1K724/)
+预先要部署在本地的GPT-SoVITS整合包：[BV1F94y1K724](https://www.bilibili.com/video/BV1F94y1K724/)
 
 **选项卡1**
 
