@@ -2559,9 +2559,14 @@ class ChatGUI(QWidget):
 
         # 将用户消息添加到当前会话的消息记录中
         self.messages.append({"role": "user", "content": user_text})
+
+        # 使用Markdown解析器处理用户消息
+        md = markdown.Markdown(extensions=['extra', 'codehilite', 'nl2br'])  # 启用Markdown扩展
+        formatted_text = md.convert(user_text).replace('\n', '<br>')  # 转换Markdown格式并保留换行符
+
         # 使用 HTML 格式设置用户消息的显示，保留换行符
-        formatted_text = user_text.replace('\n', '<br>')
         self.chat_history.append(f"<b><span style='color:green; font-size:14pt;'>User:</span></b> {formatted_text}")
+
         self.user_input.clear()
 
         # 获取下拉栏选择的选项
@@ -2581,62 +2586,28 @@ class ChatGUI(QWidget):
 
     def update_ai_response(self, text):
         try:
-            # 清除之前的 AI 回复内容，只保留用户消息和其他 AI 回复
-            history_lines = self.chat_history.toPlainText().splitlines()
-            print(history_lines)
-
-            # 检查是否存在最后一条 AI 消息
-            if self.current_ai_text:
-                # 找到最后一行 AI 回复的行号
-                last_ai_index = -1
-                for i in range(len(history_lines) - 1, -1, -1):
-                    if history_lines[i].startswith("AI:"):
-                        last_ai_index = i
-                        break
-
-                # 只保留用户消息和之前的 AI 消息，清除最后一次 AI 回复
-                if last_ai_index != -1:
-                    cleaned_history = history_lines[:last_ai_index]  # 清除最后一条 AI 回复
-                else:
-                    cleaned_history = history_lines  # 如果没有找到AI消息，保留全部历史
-
-                # 使用 HTML 格式更新聊天历史
-                formatted_history = []
-                for line in cleaned_history:
-                    # 处理被 ** 括起来的内容
-                    parts = line.split("**")  # 分割内容
-                    formatted_line = ""
-                    for i, part in enumerate(parts):
-                        if i % 2 == 1:  # 如果是括起来的内容
-                            formatted_line += f"<b>{part}</b>"  # 加粗内容
-                        else:
-                            formatted_line += part  # 其他内容保持原样
-                    if line.startswith("User:"):
-                        formatted_history.append(
-                            f"<b><span style='color:green; font-size:14pt;'>User:</span></b> {formatted_line[6:]}")
-                    elif line.startswith("AI:"):
-                        formatted_history.append(
-                            f"<b><span style='color:red; font-size:14pt;'>AI:</span></b> {formatted_line[4:]}")
-                    else:
-                        formatted_history.append(formatted_line)  # 保持其他文本不变
-
-                self.chat_history.setHtml("<br>".join(formatted_history))
-
-            # 使用 Markdown 解析器处理 AI 的响应
+            # 使用Markdown解析器处理 AI 的响应
             md = markdown.Markdown(extensions=['extra', 'codehilite', 'nl2br'])  # 启用额外的Markdown扩展
             formatted_text = md.convert(text)  # 将 Markdown 文本转换为 HTML 格式
 
-            # 将AI响应插入到聊天记录中，保留换行符
-            self.chat_history.append(
-                f"<b><span style='color:red; font-size:14pt;'>AI:</span></b> {formatted_text}")
-
-            # 更新最新的AI消息内容在对话上下文中
+            # 保存当前AI消息内容
             self.current_ai_text = text
             # 更新消息上下文
             if self.messages and self.messages[-1]["role"] == "assistant":
                 self.messages[-1]["content"] = self.current_ai_text
             else:
                 self.messages.append({"role": "assistant", "content": self.current_ai_text})
+
+            # 清除聊天历史，重新渲染所有消息，包括用户和AI的历史记录
+            self.chat_history.clear()
+
+            # 重新加载会话记录并应用 HTML 样式，保留换行符
+            for msg in self.messages:
+                color = "green" if msg['role'] == "user" else "red"
+                name = "User" if msg['role'] == "user" else "AI"
+                formatted_text = md.convert(msg['content'])  # 使用Markdown解析器转换文本为HTML
+                self.chat_history.append(
+                    f"<b><span style='color:{color}; font-size:14pt;'>{name}:</span></b> {formatted_text}")
 
             # 滚动到底部以显示最新内容
             self.chat_history.verticalScrollBar().setValue(self.chat_history.verticalScrollBar().maximum())
