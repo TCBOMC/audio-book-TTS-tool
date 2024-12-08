@@ -951,7 +951,7 @@ class StartMenu:
         except Exception as e:
             print(f"Failed to connect to {url}: {e}")
             tk.messagebox.showerror("Connection Error",
-                                    f"Failed to connect to {url}: 请启动WebUI并开启TTS推理，在推理UI启动后连接到WebUI地址{e}")
+                                    f"无法连接至 {url} 请先启动WebUI并开启TTS推理，在推理UI启动后重新连接：{e}")
 
         # 使用 after() 方法确保 start_display_folders 在主线程中执行
         self.example_window.root.after(0, folder_audio_viewer.start_display_folders)
@@ -1166,6 +1166,8 @@ class StartMenu:
 
         # 更新画布中的项目详细信息
         self.update_project_details_in_canvas(project_name)
+
+        voice_generator_app.clear_current_display()
 
         # 切换到选项卡2
         notebook_main.select(main_tab2)
@@ -4609,7 +4611,7 @@ class DialogueFormatter:
     def load_config(self):
         """加载配置文件并返回配置字典"""
         try:
-            print("获取配置")
+            # print("获取配置")
             if os.path.exists("config.json"):
                 with open("config.json", "r", encoding="utf-8") as f:
                     config_data = json.load(f)
@@ -6014,6 +6016,15 @@ class VoiceGeneratorApp:
         else:
             # 如果没有子文件夹，清空下拉框
             self.folder_combobox.set('')
+
+        # 检查 self.scroll_frame 是否有控件，如果没有则调用 display_txt_files
+        if not self.scroll_frame.winfo_children():  # 如果 scroll_frame 中没有控件
+            #print("刷新角色")
+            folder_path = self.folder_path_var.get()  # 获取当前文件夹路径
+            if folder_path and os.path.exists(folder_path) and os.path.isdir(folder_path):  # 检查是否为有效的文件夹路径
+                self.display_txt_files(folder_path)  # 调用 display_txt_files 函数并传递路径
+            else:
+                print(f"无效的路径: {folder_path}")  # 输出无效路径的提示信息
 
     def update_progress(self):
         # 强制完成进度条
