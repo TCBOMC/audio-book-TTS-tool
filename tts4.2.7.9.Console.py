@@ -3088,9 +3088,29 @@ class TextPreprocessor:
         if selected_pattern == "更多":
             self.more_AI_entry.grid()  # 显示自定义文本框
             self.custom_copy_button.grid()
+            self.process_by_chapter.place_forget()
+            self.contextualize_output_checkbox.place_forget()
+            self.threshold_label.grid_remove()
+            self.threshold_entry.grid_remove()
+            self.threshold_label_mark.grid_remove()
+            self.retry_label.grid_remove()
+            self.retry_entry.grid_remove()
+            self.text_limit_label.grid_remove()
+            self.text_limit_entry.grid_remove()
+            self.threshold_frame.grid_remove()
         else:
             self.more_AI_entry.grid_remove()  # 隐藏自定义文本框
             self.custom_copy_button.grid_remove()
+            self.process_by_chapter.place(x=0, y=0, height=15, width=100)
+            self.contextualize_output_checkbox.place(x=0, y=0, height=15, width=100)
+            self.threshold_label.grid()
+            self.threshold_frame.grid()
+            self.threshold_entry.grid()
+            self.threshold_label_mark.grid()
+            self.retry_label.grid()
+            self.retry_entry.grid()
+            self.text_limit_label.grid()
+            self.text_limit_entry.grid()
 
     def run_process_all(self):
         threading.Thread(target=self.process_all).start()
@@ -5515,7 +5535,7 @@ class DocumentProcessorApp:
         # self.symbol_frame = tk.Frame(self.parent)
         # self.symbol_frame.grid(row=12, column=0, sticky="nsew")
 
-        self.symbol_label = tk.Label(self.parent, text="分句符：")
+        self.symbol_label = tk.Label(self.parent, text="分句符：           ")
         self.symbol_label.grid(row=14, column=0, padx=5, pady=5, sticky="w")
 
         self.symbol_entry = tk.Entry(self.parent, width=13)
