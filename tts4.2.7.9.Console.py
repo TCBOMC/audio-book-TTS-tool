@@ -952,7 +952,7 @@ class StartMenu:
         except Exception as e:
             print(f"Failed to connect to {url}: {e}")
             tk.messagebox.showerror("Connection Error",
-                                    f"Failed to connect to {url}: 请启动WebUI并开启TTS推理，在推理UI启动后连接到WebUI地址{e}")
+                                    f"无法连接至 {url} 请先启动WebUI并开启TTS推理，在推理UI启动后连接到WebUI地址：{e}")
 
         # 使用 after() 方法确保 start_display_folders 在主线程中执行
         self.example_window.root.after(0, folder_audio_viewer.start_display_folders)
