@@ -35,6 +35,13 @@
 
 点击**选项卡1**的**设置**按钮将会弹出此**设置**窗口，在窗口左侧依次设置各API的配置，目前语音合成仅支持本地部署的“GPT-SoVITS”，文章标注仅支持“百度”，“KIMI”，“阿里”和其他类似“KIMI”和“阿里”这样使用OpenAI标准的API。右侧为添加角色列表的路径，建议按下载的模型[链接](https://pan.baidu.com/s/14WUDbWnBn7GPQYVREkWMug?pwd=1145)中每个游戏添加一个路径（记得把每个角色的模型放到GPT-SoVITS整合包里对应的目录，其中.ckpt文件放到整合包根目录下GPT_weights_v2文件夹，.pth文件放到整合包根目录下SoVITS_weights_v2文件夹），如果要自定义配置请在每个路径下以各角色名称命名文件夹并如下图放置各角色文件夹内的相关文件。
 
+配置大模型API：
+
+    百度：https://developer.baidu.com/article/detail.html?id=1089328
+    KIMI：https://platform.moonshot.cn/docs/intro#%E8%8E%B7%E5%8F%96-api-%E5%AF%86%E9%92%A5
+    阿里：https://help.aliyun.com/zh/model-studio/getting-started/first-api-call-to-qwen?spm=a2c4g.11186623.0.i4
+    自定义：请参考KIMI和阿里的API的文档为更多使用相似调用方法的API创建预设配置
+
 ![屏幕截图 2024-11-28 194516](https://github.com/user-attachments/assets/6197b821-0b2b-4a37-9e66-a63d45f9f8b8)
 
 1.其中参考音频是必须的，至少要有一个，建议将首选参考音频放在文件夹根目录，其他可选参考音频放在子文件夹中，这样程序在选择角色时会首选放在根目录下的参考音频。
