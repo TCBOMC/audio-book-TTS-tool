@@ -38,9 +38,11 @@
 
 配置大模型API：
 
-* 百度：https://developer.baidu.com/article/detail.html?id=1089328
-* KIMI：https://platform.moonshot.cn/docs/intro#%E8%8E%B7%E5%8F%96-api-%E5%AF%86%E9%92%A5
-* 阿里：https://help.aliyun.com/zh/model-studio/getting-started/first-api-call-to-qwen?spm=a2c4g.11186623.0.i4
+* 百度：https://cloud.baidu.com/doc/SPEECH/s/4l9mh6qf9
+* KIMI：https://platform.moonshot.cn/docs/intro
+* 阿里：https://help.aliyun.com/zh/model-studio/getting-started/first-api-call-to-qwen
+* 讯飞(暂不支持)：https://www.xfyun.cn/doc/platform/quickguide.html
+* 腾讯：https://cloud.tencent.com/document/product/1729/111008
 * 自定义：请参考KIMI和阿里的API的文档为更多使用相似调用方法的API创建预设配置
 
 如果要自定义配置请在每个路径下以各角色名称命名文件夹并如下图放置各角色文件夹内的相关文件：
