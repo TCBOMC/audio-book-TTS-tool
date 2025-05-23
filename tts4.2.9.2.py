@@ -1215,13 +1215,17 @@ class StartMenu:
                         return len(content), content.count('\n') + 1
                 return 0, 0
 
-            def insert_folder_file_stats(folder, section_name):
+            def insert_folder_file_stats(folder, section_name, add_spacing=False):
+                if add_spacing:
+                    self.project_details_tree.insert("", "end", values=("", ""))  # 添加空行（section 之前）
+
                 if os.path.exists(folder):
                     files = [f for f in os.listdir(folder) if f.endswith('.txt')]
                     if not files:
                         self.project_details_tree.insert("", "end", values=(section_name, "暂无"))
                         return
-                    self.project_details_tree.insert("", "end", values=(section_name, ""))  # 小节标题
+                    if section_name:  # ⚠️ 只有非空才插入标题行，避免空标题行
+                        self.project_details_tree.insert("", "end", values=(section_name, ""))
                     for file in files:
                         file_path = os.path.join(folder, file)
                         chars, lines = get_file_stats(file_path)
@@ -1230,8 +1234,8 @@ class StartMenu:
                     self.project_details_tree.insert("", "end", values=(section_name, "暂无"))
 
             # 添加章节信息
-            insert_folder_file_stats(os.path.join(folder_path, 'Chapters'), "已分章节")
-            insert_folder_file_stats(os.path.join(folder_path, 'Chapters_marked'), "已标记章节")
+            insert_folder_file_stats(os.path.join(folder_path, 'Chapters'), "已分章节", add_spacing=True)
+            insert_folder_file_stats(os.path.join(folder_path, 'Chapters_marked'), "已标记章节", add_spacing=True)
 
             # 添加待合成章节信息
             chapters_tts_path = os.path.join(folder_path, 'Chapters_tts')
@@ -1239,11 +1243,14 @@ class StartMenu:
                 tts_folders = [f for f in os.listdir(chapters_tts_path) if
                                os.path.isdir(os.path.join(chapters_tts_path, f))]
                 if not tts_folders:
+                    self.project_details_tree.insert("", "end", values=("", ""))  # 添加空行
                     self.project_details_tree.insert("", "end", values=("待合成章节", "暂无"))
                 for folder in tts_folders:
-                    self.project_details_tree.insert("", "end", values=(f"待合成: {folder}", ""))
-                    insert_folder_file_stats(os.path.join(chapters_tts_path, folder), "")
+                    self.project_details_tree.insert("", "end", values=("", ""))  # 添加空行
+                    #self.project_details_tree.insert("", "end", values=(f"待合成: {folder}", ""))
+                    insert_folder_file_stats(os.path.join(chapters_tts_path, folder), f"待合成: {folder}", add_spacing=False)
             else:
+                self.project_details_tree.insert("", "end", values=("", ""))  # 添加空行
                 self.project_details_tree.insert("", "end", values=("待合成章节", "暂无"))
 
     def mouse_wheel(self, event):
