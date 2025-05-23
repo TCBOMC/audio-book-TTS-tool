@@ -8,7 +8,7 @@
 
 ![屏幕截图 2024-12-01 011338](https://github.com/user-attachments/assets/6681be39-e7b4-4270-b2a0-36f389c5d7ff)
 
-1.下载[整合包](https://pan.baidu.com/share/init?surl=OE5qL0KreO-ASHwm6Zl9gA&pwd=mqpi)后解压得到上图目录，将下载的[模型](https://pan.baidu.com/s/14WUDbWnBn7GPQYVREkWMug?pwd=1145)依次放入上图中标注的文件夹，下载项目中的[go-tts.bat](https://github.com/TCBOMC/audio-book-TTS-tool/blob/main/go-tts.bat)文件到图中根目录并双击来启动语音合成(这一步完成之后就可以去启动程序了，后面步骤可以不做)，如果你想启动包含更多功能的WebUI(主要是有关训练模型，与本项目的语音合成无关，可以不启动)
+1.下载[整合包](https://pan.baidu.com/share/init?surl=OE5qL0KreO-ASHwm6Zl9gA&pwd=mqpi)后解压得到上图目录，将下载的[模型](https://pan.baidu.com/s/14WUDbWnBn7GPQYVREkWMug?pwd=1145)依次放入上图中标注的文件夹，下载项目中的[go-tts.bat](https://github.com/TCBOMC/audio-book-TTS-tool/blob/main/go-tts.bat)文件到图中根目录并双击来启动语音合成（这一步完成之后就可以去启动程序了，后面步骤可以不做），如果你想启动包含更多功能的WebUI（主要是有关训练模型，与本项目的语音合成无关，可以不启动）
 双击**go-webui.bat**文件
 
 2.在**go-webui.bat**启动WebUI默认浏览器应该会打开如下图中的网页，在此页面想启动tts推理功能需要依次点击图中标注的三个按钮，此时注意go-webui.bat打开的控制台的信息，如果报错点击按钮③**关闭TTS推理WebUI**后再打开应该就好了
@@ -105,8 +105,8 @@
         
   2.用*号替换多个章节标签之间的内容（内容相同可以不替换）
         
-* 程序会依次识别出文本框内的各章节标号并依次逐级分章，使用此模式不建议小说内容超过200万字否则大概率闪退，如果闪退可以多试几次，有成功的可能
-* 以下为使用“第[汉字数字]篇*第[汉字数字]章”作为自定义章节标号对某小说进行分章的结果（分出来600多章截不全）
+* 程序会依次识别出文本框内的各章节标号并依次逐级分章，使用此模式不建议小说内容超过200万字否则大概率闪退（如果闪退可以多试几次，有成功的可能）
+* 以下为使用“第[汉字数字]篇*第[汉字数字]章”作为自定义章节标号对某小说进行分章的结果示例（分出来600多章截不全）
     
 ![屏幕截图 2024-11-28 205348](https://github.com/user-attachments/assets/88a6ec37-9d1d-48bc-99e4-3dc43f86d3b1)
 
