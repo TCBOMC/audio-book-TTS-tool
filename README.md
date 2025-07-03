@@ -4,6 +4,15 @@
 
 预先要部署在本地的GPT-SoVITS整合包：[BV1F94y1K724](https://www.bilibili.com/video/BV1F94y1K724/)
 
+**API开发者**
+
+GPT-SoVITS开发者：@花儿不哭
+
+模型训练者：@红血球AE3803 @白菜工厂1145号员工
+
+推理特化包适配 & 在线推理：@AI-Hobbyist
+
+
 **启动GPT-SoVITS**
 
 ![屏幕截图 2024-12-01 011338](https://github.com/user-attachments/assets/6681be39-e7b4-4270-b2a0-36f389c5d7ff)
