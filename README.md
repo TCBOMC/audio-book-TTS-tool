@@ -1,4 +1,4 @@
-用AI辅助编写了一个程序接入的B站这位UP**@RVC-Boss** 制作的整合包中的API
+用AI辅助编写了一个程序接入的B站这位UP@**花儿不哭** 制作的整合包中的API
 
 该位UP的教程(其中包含相关模型下载)： https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e
 
@@ -11,6 +11,8 @@ GPT-SoVITS开发者：@花儿不哭
 模型训练者：@红血球AE3803 @白菜工厂1145号员工
 
 推理特化包适配 & 在线推理：@AI-Hobbyist
+
+GPT-SoVITS整合包：https://github.com/RVC-Boss/GPT-SoVITS
 
 
 **启动GPT-SoVITS**
